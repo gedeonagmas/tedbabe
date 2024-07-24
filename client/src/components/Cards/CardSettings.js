@@ -4,8 +4,6 @@ import { useReadQuery } from "features/api/apiSlice";
 import { useUpdateMutation } from "features/api/apiSlice";
 import React, { useEffect, useState } from "react";
 
-// components
-
 export default function CardSettings() {
   const user = JSON.parse(localStorage.getItem("tedbabe_user"));
 
@@ -26,18 +24,26 @@ export default function CardSettings() {
       setName(users?.data[0]?.name ? users?.data[0]?.name : name);
       setEmail(users?.data[0]?.email ? users?.data[0]?.email : email);
     }
-  });
+  }, [users]);
+
   const updateHandler = () => {
-    const data = { url: `/user/users?id=${user?._id}`, tag: ["users"] };
-    if (password && password.length > 0) {
-      data.password = password;
-    }
+    const data = {
+      url: `/user/users?id=${user?._id}`,
+      name,
+      email,
+      tag: ["users"],
+    };
+
     updateData(data);
   };
 
   return (
     <>
-      <Response response={updateResponse} setPending={setPending} />
+      <Response
+        response={updateResponse}
+        setPending={setPending}
+        type="update"
+      />
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
         <div className="rounded-t bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
@@ -55,8 +61,8 @@ export default function CardSettings() {
             <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
               User Information
             </h6>
-            <div className="flex flex-wrap">
-              <div className="w-full lg:w-6/12 px-4">
+            <div className="flex flex-col gap-4 flex-wrap">
+              <div className="w-full px-4">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -69,11 +75,11 @@ export default function CardSettings() {
                     type="text"
                     value={name}
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="gedeon agmas"
+                    placeholder="gedeon agmas"
                   />
                 </div>
               </div>
-              <div className="w-full lg:w-6/12 px-4">
+              <div className="w-full px-4">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -86,23 +92,7 @@ export default function CardSettings() {
                     value={email}
                     type="email"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="gedion@gmail.com"
-                  />
-                </div>
-              </div>
-              <div className="w-full px-4">
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Password
-                  </label>
-                  <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    type="password"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Lucky"
+                    placeholder="gedion@gmail.com"
                   />
                 </div>
               </div>

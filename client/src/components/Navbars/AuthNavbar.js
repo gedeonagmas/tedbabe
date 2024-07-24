@@ -8,13 +8,17 @@ import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
 
 export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const user = JSON.parse(localStorage.getItem("tedbabe_user"));
+
   return (
     <>
       <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link
-              className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+              className={`${
+                props.type === "admin" ? "text-blueGray-500" : "text-white"
+              } text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase`}
               to="/"
             >
               Tedbabe Hara
@@ -29,18 +33,26 @@ export default function Navbar(props) {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none" +
+              `lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none` +
               (navbarOpen ? " block rounded shadow-lg" : " hidden")
             }
             id="example-navbar-warning"
           >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <ul
+              className={`flex flex-col lg:flex-row list-none ${
+                props.type === "admin" ? "text-blueGray-500" : "text-white"
+              } lg:ml-auto text-blueGray-700 ${
+                props.type === "admin"
+                  ? "lg:text-blueGray-500"
+                  : "lg:text-white"
+              } `}
+            >
               {/* <li className="flex items-center">
                 <PagesDropdown />
               </li> */}
               {/* <li className="flex items-center">
                 <a
-                  className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F"
                   target="_blank"
                 >
@@ -51,7 +63,7 @@ export default function Navbar(props) {
 
               <li className="flex items-center">
                 <a
-                  className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20React%20UI%20Kit%20and%20Admin.%20Let%20Notus%20React%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level.%20"
                   target="_blank"
                 >
@@ -62,7 +74,7 @@ export default function Navbar(props) {
 
               <li className="flex items-center">
                 <a
-                  className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="https://github.com/creativetimofficial/notus-react?ref=nr-auth-navbar"
                   target="_blank"
                 >
@@ -71,9 +83,19 @@ export default function Navbar(props) {
                 </a>
               </li> */}
 
+              {user && (
+                <li className="flex items-center">
+                  <a
+                    className=" px-3 py-4 lg:hover:text-blueGray-200 lg:py-2 flex items-center text-xs uppercase font-bold"
+                    href="/admin/dashboard"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+              )}
               <li className="flex items-center">
                 <a
-                  className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className=" px-3 py-4 lg:hover:text-blueGray-200 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="/"
                 >
                   Home
@@ -82,7 +104,7 @@ export default function Navbar(props) {
 
               <li className="flex items-center">
                 <a
-                  className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className=" px-3 py-4 lg:hover:text-blueGray-200 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="/about"
                 >
                   About
@@ -90,7 +112,7 @@ export default function Navbar(props) {
               </li>
               <li className="flex items-center">
                 <a
-                  className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className=" px-3 py-4 lg:hover:text-blueGray-200 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="/contact"
                 >
                   Contact
@@ -98,7 +120,7 @@ export default function Navbar(props) {
               </li>
               <li className="flex items-center">
                 <a
-                  className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className=" px-3 py-4 lg:hover:text-blueGray-200 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="/service"
                 >
                   Services

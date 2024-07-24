@@ -4,21 +4,8 @@ import PropTypes from "prop-types";
 // components
 
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
-import { useReadQuery } from "features/api/apiSlice";
 
 export default function CardTable({ color, data }) {
-  const {
-    data: projects,
-    isFetching: projectsIsFetching,
-    isError: projectsIsError,
-  } = useReadQuery({ url: "/user/projects", tag: ["projects"] });
-
-  const {
-    data: companies,
-    isFetching: companiesIsFetching,
-    isError: companiesIsError,
-  } = useReadQuery({ url: "/user/companies", tag: ["companies"] });
-
   return (
     <>
       <div

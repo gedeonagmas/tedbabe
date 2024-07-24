@@ -155,19 +155,13 @@ export const apiSlice = createApi({
       },
     }),
 
-    //########################### chat routing ###############################
-    readChat: builder.query({
-      query: (data) => {
-        data?.tag.map((d) => tag.push(d));
-        return {
-          url: data.url,
-          method: "GET",
-          credentials: "include",
-        };
-      },
-      providesTags: () => {
-        return [...new Set(tag)];
-      },
+    sendEmail: builder.mutation({
+      query: (data) => ({
+        url: "/user/sendEmail",
+        method: "POST",
+        body: data,
+        credentials: "include",
+      }),
     }),
   }),
 });
@@ -185,6 +179,5 @@ export const {
   useUpdateMutation,
   useDeleteMutation,
   useLazyReadQuery,
-
-  useLazyReadChatQuery,
+  useSendEmailMutation,
 } = apiSlice;

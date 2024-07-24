@@ -148,6 +148,24 @@ const updatePassword = asyncCatch(async (req, res, next) => {
     .json({ status: "Changed", message: "Password changed successfully" });
 });
 
+const emailController = asyncCatch(async (req, res, next) => {
+  const { subject, to, message } = req.body;
+  console.log(req.body, "body");
+  if (subject?.length < 1 || to?.length < 1 || message?.length < 1)
+    return next(new AppError("All Fields Are required!", 404));
+
+  sendEmailHandler({
+    subject,
+    to,
+    message,
+    button: "Explore More",
+    link: "https://tedbabehara.com",
+    res: res,
+    next: next,
+    response: "Email Sent Successfully.",
+  });
+});
+
 module.exports = {
   signupHandler,
   loginHandler,
@@ -155,4 +173,5 @@ module.exports = {
   forgetPassword,
   resetPassword,
   updatePassword,
+  emailController,
 };

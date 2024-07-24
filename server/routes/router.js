@@ -16,6 +16,7 @@ const {
   updatePassword,
   sendEmail,
   logoutHandler,
+  emailController,
 } = require("../controller/accountController.js");
 
 const router = express.Router();
@@ -37,6 +38,8 @@ router.route("/forgetPassword").post(forgetPassword);
 router.route("/resetPassword").post(resetPassword);
 
 router.route("/updatePassword").put(authentication, updatePassword);
+
+router.route("/sendEmail").post(authentication, emailController);
 
 //factory route
 router

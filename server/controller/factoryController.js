@@ -1,6 +1,7 @@
 const asyncCatch = require("express-async-catch");
 const AppError = require("../utils/AppError");
 const { selectModel } = require("../utils/selectModel");
+const bcrypt = require("bcrypt");
 
 const api = "http://localhost:5001/uploads/";
 
@@ -114,7 +115,7 @@ const _update = asyncCatch(async (req, res, next) => {
   console.log(model, req.params, req.body);
   if (model) {
     const data = await model.findOneAndUpdate(
-      { _id: req.query.id }, 
+      { _id: req.query.id },
       {
         ...req.body,
         profilePicture: req.files?.profilePicture

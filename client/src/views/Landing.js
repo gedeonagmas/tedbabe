@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 // components
@@ -6,13 +6,70 @@ import { Link } from "react-router-dom";
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import Marquee from "react-fast-marquee";
+import { useReadQuery } from "features/api/apiSlice";
+import Response from "components/Response";
+import LoadingButton from "components/loading/LoadingButton";
+import { useSendEmailMutation } from "features/api/apiSlice";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 
 export default function Landing() {
+  const {
+    data: projects,
+    isFetching: projectsIsFetching,
+    isError: projectsIsError,
+  } = useReadQuery({ url: "/user/projects?limits=6", tag: ["projects"] });
+
+  const {
+    data: companies,
+    isFetching: companiesIsFetching,
+    isError: companiesIsError,
+  } = useReadQuery({ url: "/user/companies", tag: ["companies"] });
+
+  const [emailData, emailResponse] = useSendEmailMutation();
+  const [emailPending, setEmailPending] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const emailHandler = () => {
+    emailData({
+      to: email,
+      name,
+      message,
+    });
+  };
+
+  const slideImages = [
+    "lalibela1.jpg",
+    "gonder1.jpg",
+    "axum1.jpg",
+    "lalibela2.jpg",
+    "gonder2.jpg",
+    "axum2.jpg",
+  ];
+  const divStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundSize: "cover",
+    height: "625px",
+  };
+
+  const [image, setImage] = useState("lalibela1.jpg");
+
+  // const getImage = () => {
+  //   setInterval(function () {
+  //     setImage("axum1.jpg");
+  //   }, 5000);
+  // };
+
   return (
     <>
       <Navbar transparent />
       <main>
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
+          <Response response={emailResponse} setPending={setEmailPending} />
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
@@ -25,6 +82,7 @@ export default function Landing() {
               className="w-full h-full absolute opacity-75 bg-black"
             ></span>
           </div>
+          {/* hero */}
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
@@ -530,28 +588,31 @@ export default function Landing() {
               </div>
             </div>
             <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
-              {[1, 2, 3, 4, 5, 6].map((e, i) => {
+              {projects?.data?.map((e, i) => {
                 return (
                   <div className="relative w-[400px] h-[300px] rounded-lg border">
                     <img
-                      onMouseOver={() => {
-                        const id = document.getElementById(i);
-                        id?.classList?.remove("hidden");
-                        id?.classList?.add("flex");
-                      }}
-                      onMouseLeave={() => {
-                        const id = document.getElementById(i);
-                        id?.classList?.remove("flex");
-                        id?.classList?.add("hidden");
-                      }}
-                      src="./lalibela1.jpg"
-                      className="w-full rounded-lg"
+                      // onMouseOver={() => {
+                      //   console.log("hover", i);
+                      //   const id = document.getElementById(i);
+                      //   id?.classList?.remove("hidden");
+                      //   id?.classList?.add("flex");
+                      // }}
+                      // onMouseLeave={() => {
+                      //   console.log("leave", i);
+
+                      //   const id = document.getElementById(i);
+                      //   id?.classList?.remove("flex");
+                      //   id?.classList?.add("hidden");
+                      // }}
+                      src={e?.image}
+                      className="w-full brightness-75 rounded-lg"
                     />
                     <div
                       id={i}
-                      className="absolute hidden w-full h-full top-0 left-0 rounded-lg bg-yellow-400 text-white items-center justify-center text-4xl duration-75 ease-in-out"
+                      className="absolute w-[400px] h-7 bottom-2 right-2 rounded-lg bg-yellow-400/35 text-white items-center justify-center text-lg font-light duration-75 ease-in-out"
                     >
-                      hello there
+                      {e?.title}
                     </div>
                   </div>
                 );
@@ -563,7 +624,7 @@ export default function Landing() {
           <div className="flex flex-wrap justify-center text-center mb-24">
             <div className="w-full lg:w-6/12 px-4">
               <h2 className="text-4xl font-semibold">
-                Here are our latest projects
+                Companies which work with us.
               </h2>
               <p className="text-lg leading-relaxed m-4 text-blueGray-500">
                 According to the National Oceanic and Atmospheric
@@ -573,16 +634,11 @@ export default function Landing() {
             </div>
           </div>
           <Marquee className="w-full flex items-center justify-between gap-10">
-            {/* <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8"> */}
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((c) => {
+            {companies?.data?.map((c) => {
               return (
-                <img
-                  src="./lalibela1.jpg"
-                  className="w-32 h-20 ml-10 rounded-lg"
-                />
+                <img src={c?.logo} className="w-32 h-20 ml-10 rounded-lg" />
               );
             })}
-            {/* </div> */}
           </Marquee>
         </section>
         <section className="pb-20 relative block bg-blueGray-800">
@@ -681,6 +737,7 @@ export default function Landing() {
                         Full Name
                       </label>
                       <input
+                        onChange={(e) => setName(e?.target.value)}
                         type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         placeholder="Full Name"
@@ -695,6 +752,7 @@ export default function Landing() {
                         Email
                       </label>
                       <input
+                        onChange={(e) => setEmail(e?.target.value)}
                         type="email"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         placeholder="Email"
@@ -709,6 +767,7 @@ export default function Landing() {
                         Message
                       </label>
                       <textarea
+                        onChange={(e) => setMessage(e?.target.value)}
                         rows="4"
                         cols="80"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
@@ -716,12 +775,13 @@ export default function Landing() {
                       />
                     </div>
                     <div className="text-center mt-6">
-                      <button
-                        className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                      >
-                        Send Message
-                      </button>
+                      <LoadingButton
+                        pending={emailPending}
+                        onClick={emailHandler}
+                        title="Send"
+                        color="bg-blueGray-700"
+                        width="w-full py-3 text-lg"
+                      />
                     </div>
                   </div>
                 </div>
