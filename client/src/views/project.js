@@ -10,7 +10,7 @@ export default function Project() {
     isFetching: projectsIsFetching,
     isError: projectsIsError,
   } = useReadQuery({ url: "/user/projects", tag: ["projects"] });
-  
+
   return (
     <>
       <Navbar transparent />
@@ -20,7 +20,7 @@ export default function Project() {
             className="absolute flex items-center justify-center text-center top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')",
+                "url('https://images.unsplash.com/flagged/photo-1572644973628-e9be84915d59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D')",
             }}
           >
             <span

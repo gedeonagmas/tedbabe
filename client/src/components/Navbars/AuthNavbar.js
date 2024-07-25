@@ -1,10 +1,5 @@
-/*eslint-disable*/
 import React from "react";
 import { Link } from "react-router-dom";
-
-// components
-
-import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
 
 export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -18,10 +13,14 @@ export default function Navbar(props) {
             <Link
               className={`${
                 props.type === "admin" ? "text-blueGray-500" : "text-white"
-              } text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase`}
+              } text-sm font-bold flex gap-2 leading-relaxed mr-4 py-2 whitespace-nowrap uppercase`}
               to="/"
             >
-              Tedbabe Hara
+              <img src="logo.jpg" className="w-14 h-10 rounded-lg" />
+              <div>
+                <p>Tedbabe Hara</p>
+                <p className="text-sm font-light">Heritages</p>
+              </div>
             </Link>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -47,42 +46,6 @@ export default function Navbar(props) {
                   : "lg:text-white"
               } `}
             >
-              {/* <li className="flex items-center">
-                <PagesDropdown />
-              </li> */}
-              {/* <li className="flex items-center">
-                <a
-                  className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F"
-                  target="_blank"
-                >
-                  <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-facebook text-lg leading-lg " />
-                  <span className="lg:hidden inline-block ml-2">Share</span>
-                </a>
-              </li>
-
-              <li className="flex items-center">
-                <a
-                  className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20React%20UI%20Kit%20and%20Admin.%20Let%20Notus%20React%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level.%20"
-                  target="_blank"
-                >
-                  <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-twitter text-lg leading-lg " />
-                  <span className="lg:hidden inline-block ml-2">Tweet</span>
-                </a>
-              </li>
-
-              <li className="flex items-center">
-                <a
-                  className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="https://github.com/creativetimofficial/notus-react?ref=nr-auth-navbar"
-                  target="_blank"
-                >
-                  <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-github text-lg leading-lg " />
-                  <span className="lg:hidden inline-block ml-2">Star</span>
-                </a>
-              </li> */}
-
               {user && (
                 <li className="flex items-center">
                   <a

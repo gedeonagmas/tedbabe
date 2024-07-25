@@ -12,6 +12,7 @@ import LoadingButton from "components/loading/LoadingButton";
 import { useSendEmailMutation } from "features/api/apiSlice";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import BackgroundSlider from "react-background-slider";
 
 export default function Landing() {
   const {
@@ -74,7 +75,7 @@ export default function Landing() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')",
+                "url('https://images.unsplash.com/flagged/photo-1572644973628-e9be84915d59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D')",
             }}
           >
             <span
@@ -82,18 +83,26 @@ export default function Landing() {
               className="w-full h-full absolute opacity-75 bg-black"
             ></span>
           </div>
+          {/* <div className="absolute top-0 w-full h-96 bg-center bg-cover">
+            <BackgroundSlider
+              images={slideImages}
+              duration={5}
+              transition={2}
+            />
+          </div> */}
           {/* hero */}
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                    Your story starts with us.
+                    Lets Save our heritages.
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    This is a simple example of a Landing Page you can build
-                    using Notus React. It features multiple CSS components based
-                    on the Tailwind CSS design system.
+                    A company committed to protecting and revitalizing the
+                    cultural treasures, ensuring the enduring legacy of
+                    humanity's past inspires generations to come. Through
+                    meticulous restoration.
                   </p>
                 </div>
               </div>
@@ -129,10 +138,11 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Awarded Agency</h6>
+                    <h6 className="text-xl font-semibold">Awarded Company</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Divide details about your product or agency work into
-                      parts. A paragraph describing a feature will be enough.
+                      We have amassed numerous prestigious awards honoring our
+                      excellence in cultural heritage preservation and
+                      stewardship.
                     </p>
                   </div>
                 </div>
@@ -144,10 +154,11 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                       <i className="fas fa-retweet"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
+                    <h6 className="text-xl font-semibold">Free Services</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
+                      Provides some free services related to cultural heritage
+                      preservation The free services include technical
+                      expertise, funding assistance, and educational outreach
                     </p>
                   </div>
                 </div>
@@ -161,8 +172,10 @@ export default function Landing() {
                     </div>
                     <h6 className="text-xl font-semibold">Verified Company</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
+                      As a thoroughly vetted and accredited organization, we are
+                      uniquely positioned to safeguard the world's cultural
+                      heritage. Our status as a thoroughly verified and
+                      accredited.
                     </p>
                   </div>
                 </div>
@@ -178,26 +191,28 @@ export default function Landing() {
                   Working with us is a pleasure
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
+                  Working alongside our accomplished team of heritage
+                  restoration experts is an absolute pleasure.
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
+                  Partnering with our seasoned heritage restoration specialists
+                  is always a pleasure. Our clients consistently express the
+                  pleasure of working with our talented heritage restoration
+                  crew.
                 </p>
-                <Link to="/" className="font-bold text-blueGray-700 mt-8">
-                  Check Notus React!
+                <Link
+                  to="/service"
+                  className="font-bold text-blueGray-700 mt-8"
+                >
+                  Check More!
                 </Link>
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg bg-yellow-700 rounded-lg">
                   <img
                     alt="..."
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+                    src="https://images.unsplash.com/photo-1614981816670-3e65f4cfdb28?q=80&w=1550&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     className="w-full align-middle rounded-t-lg"
                   />
                   <blockquote className="relative p-8 mb-4">
@@ -209,16 +224,16 @@ export default function Landing() {
                     >
                       <polygon
                         points="-30,95 583,95 583,65"
-                        className="text-lightBlue-500 fill-current"
+                        className="text-yellow-700 fill-current"
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
                       Top Notch Services
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      The Arctic Ocean freezes every winter and much of the
-                      sea-ice then thaws every summer, and that process will
-                      continue whatever happens.
+                      The company's heritage restoration experts bring a unique
+                      blend of technical mastery, creative vision, and deep
+                      reverence for the past.
                     </p>
                   </blockquote>
                 </div>
@@ -251,10 +266,10 @@ export default function Landing() {
           <div className="container mx-auto">
             <div className="flex flex-wrap items-center">
               <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-32">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-yellow-700">
                   <img
                     alt="..."
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+                    src="https://images.unsplash.com/flagged/photo-1572644973628-e9be84915d59?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     className="w-full align-middle rounded-t-lg"
                   />
                   <blockquote className="relative p-8 mb-4">
@@ -266,17 +281,19 @@ export default function Landing() {
                     >
                       <polygon
                         points="-30,95 583,95 583,65"
-                        className="text-lightBlue-500 fill-current"
+                        className="text-yellow-700 fill-current"
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Great for your awesome project
+                      Great for all heritages
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      Putting together a page has never been easier than
-                      matching together pre-made components. From landing pages
-                      presentation to login areas, you can easily customise and
-                      built your pages.
+                      Our skilled artisans employ meticulous techniques to
+                      carefully revive faded colors and rejuvenate weathered
+                      surfaces, preserving the integrity of cherished cultural
+                      landmarks. From site assessments and project planning to
+                      community engagement and funding procurement, we provide
+                      the expert counsel.
                     </p>
                   </blockquote>
                 </div>
@@ -290,12 +307,10 @@ export default function Landing() {
                         <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                           <i className="fas fa-sitemap"></i>
                         </div>
-                        <h6 className="text-xl mb-1 font-semibold">
-                          CSS Components
-                        </h6>
+                        <h6 className="text-xl mb-1 font-semibold">Painting</h6>
                         <p className="mb-4 text-blueGray-500">
-                          Notus React comes with a huge number of Fully Coded
-                          CSS components.
+                          Our specialized painting services breathe new life
+                          into aging structures and artifacts.
                         </p>
                       </div>
                     </div>
@@ -305,11 +320,11 @@ export default function Landing() {
                           <i className="fas fa-drafting-compass"></i>
                         </div>
                         <h6 className="text-xl mb-1 font-semibold">
-                          JavaScript Components
+                          Restoration
                         </h6>
                         <p className="mb-4 text-blueGray-500">
-                          We also feature many dynamic components for React,
-                          NextJS, Vue and Angular.
+                          Drawing on decades of experience, our restoration
+                          experts utilize the latest conservation methods.
                         </p>
                       </div>
                     </div>
@@ -320,10 +335,12 @@ export default function Landing() {
                         <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                           <i className="fas fa-newspaper"></i>
                         </div>
-                        <h6 className="text-xl mb-1 font-semibold">Pages</h6>
+                        <h6 className="text-xl mb-1 font-semibold">
+                          Adding Value
+                        </h6>
                         <p className="mb-4 text-blueGray-500">
-                          This extension also comes with 3 sample pages. They
-                          are fully coded so you can start working instantly.
+                          Beyond basic preservation, our team excels at
+                          strategic heritage sites.
                         </p>
                       </div>
                     </div>
@@ -333,11 +350,11 @@ export default function Landing() {
                           <i className="fas fa-file-alt"></i>
                         </div>
                         <h6 className="text-xl mb-1 font-semibold">
-                          Documentation
+                          Consulting
                         </h6>
                         <p className="mb-4 text-blueGray-500">
-                          Built by developers for developers. You will love how
-                          easy is to to work with Notus React.
+                          Our trusted advisory services guide stakeholders in
+                          developing comprehensive strategies.
                         </p>
                       </div>
                     </div>
@@ -373,26 +390,29 @@ export default function Landing() {
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
-                  <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
+                  <div className="text-yellow-700 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-yellow-200">
                     <i className="fas fa-rocket text-xl"></i>
                   </div>
-                  <h3 className="text-3xl font-semibold">A growing company</h3>
+                  <h3 className="text-3xl font-semibold">
+                    Increase Heritage Lifespan
+                  </h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    The extension comes with three pre-built pages to help you
-                    get started faster. You can change the text and images and
-                    you're good to go.
+                    By prioritizing the use of original materials, heritage
+                    preservation efforts can more effectively uphold the
+                    cultural significance and distinctive character of our
+                    shared historical legacy.
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-200 mr-3">
                             <i className="fas fa-fingerprint"></i>
                           </span>
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Carefully crafted components
+                            Original Materials
                           </h4>
                         </div>
                       </div>
@@ -400,13 +420,13 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-200 mr-3">
                             <i className="fab fa-html5"></i>
                           </span>
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Amazing page examples
+                            Maintaining originality
                           </h4>
                         </div>
                       </div>
@@ -414,13 +434,13 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-200 mr-3">
                             <i className="far fa-paper-plane"></i>
                           </span>
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Dynamic components
+                            continuation of state
                           </h4>
                         </div>
                       </div>
@@ -431,8 +451,8 @@ export default function Landing() {
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
                 <img
                   alt="..."
-                  className="max-w-full rounded-lg shadow-lg"
-                  src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  className="max-w-full h-96 rounded-lg shadow-lg"
+                  src="./gonder2.jpg"
                 />
               </div>
             </div>
@@ -465,32 +485,33 @@ export default function Landing() {
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
                 <img
                   alt="..."
-                  className="max-w-full rounded-lg shadow-lg"
-                  src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  className="max-w-full h-96 rounded-lg shadow-lg"
+                  src="./axum1.jpg"
                 />
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
-                  <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
+                  <div className="text-yellow-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-yellow-200">
                     <i className="fas fa-rocket text-xl"></i>
                   </div>
-                  <h3 className="text-3xl font-semibold">A growing company</h3>
+                  <h3 className="text-3xl font-semibold">Continuous Support</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    The extension comes with three pre-built pages to help you
-                    get started faster. You can change the text and images and
-                    you're good to go.
+                    provides sustained assistance and resources to help
+                    safeguard the user's cultural heritage over time. This
+                    framing emphasizes the preservation focus and ongoing nature
+                    of the support provided.
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-200 mr-3">
                             <i className="fas fa-fingerprint"></i>
                           </span>
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Carefully crafted components
+                            Adaptable support
                           </h4>
                         </div>
                       </div>
@@ -498,13 +519,13 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-200 mr-3">
                             <i className="fab fa-html5"></i>
                           </span>
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Amazing page examples
+                            Continuous Consulting
                           </h4>
                         </div>
                       </div>
@@ -512,13 +533,13 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-200 mr-3">
                             <i className="far fa-paper-plane"></i>
                           </span>
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Dynamic components
+                            Better team support
                           </h4>
                         </div>
                       </div>
@@ -538,36 +559,42 @@ export default function Landing() {
                   <i className="fas fa-code-branch text-xl"></i>
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal text-white">
-                  Open Source
+                  Multiple Branch
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-400">
-                  Since{" "}
-                  <a
-                    href="https://tailwindcss.com/?ref=creativetim"
-                    className="text-blueGray-300"
-                    target="_blank"
-                  >
-                    Tailwind CSS
-                  </a>{" "}
-                  is an open source project we wanted to continue this movement
-                  too. You can give this version a try to feel the design and
-                  also test the quality of the code!
+                  We have a total of 4 branches across the country to provide
+                  continuous, adaptable support to preserve and promote your
+                  cultural heritage for generations to come.
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-400">
-                  Get it free on Github and please help us spread the news with
-                  a Star!
+                  Get unlimited support from our team.
                 </p>
                 <a
-                  href="https://github.com/creativetimofficial/notus-react?ref=nr-index"
-                  target="_blank"
+                  href="/contact"
                   className="github-star mt-4 inline-block text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
                 >
-                  Github Star
+                  Contact us.
                 </a>
               </div>
 
-              <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-32 relative">
-                <i className="fab fa-github text-blueGray-700 absolute -top-150-px -right-100 left-auto opacity-80 text-55"></i>
+              <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-64 relative">
+                <svg
+                  class="w-72 h-72 text-gray-500 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 4h12M6 4v16M6 4H5m13 0v16m0-16h1m-1 16H6m12 0h1M6 20H5M9 7h1v1H9V7Zm5 0h1v1h-1V7Zm-5 4h1v1H9v-1Zm5 0h1v1h-1v-1Zm-3 4h2a1 1 0 0 1 1 1v4h-4v-4a1 1 0 0 1 1-1Z"
+                  />
+                </svg>
               </div>
             </div>
           </div>
@@ -620,6 +647,7 @@ export default function Landing() {
             </div>
           </div>
         </section>
+
         <section className="py-20 my-10 bg-blueGray-100 overflow-hidden">
           <div className="flex flex-wrap justify-center text-center mb-24">
             <div className="w-full lg:w-6/12 px-4">
@@ -641,6 +669,7 @@ export default function Landing() {
             })}
           </Marquee>
         </section>
+
         <section className="pb-20 relative block bg-blueGray-800">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
@@ -666,7 +695,7 @@ export default function Landing() {
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
-                  Build something
+                  Work With us
                 </h2>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-400">
                   Put the potentially record low maximum sea ice extent tihs
@@ -681,11 +710,11 @@ export default function Landing() {
                   <i className="fas fa-medal text-xl"></i>
                 </div>
                 <h6 className="text-xl mt-5 font-semibold text-white">
-                  Excelent Services
+                  Lets work to gather
                 </h6>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  we can leverage our combined expertise, and resources to
+                  develop comprehensive preservation method.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -693,11 +722,11 @@ export default function Landing() {
                   <i className="fas fa-poll text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Grow your market
+                  Collaborate with us
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Collaborating with heritage stakeholders allows for a more
+                  holistic understanding of the challenges and needs.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -705,11 +734,11 @@ export default function Landing() {
                   <i className="fas fa-lightbulb text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Launch time
+                  Join Efforts
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Joint efforts foster a sense of shared responsibility for
+                  protecting our cultural legacies.
                 </p>
               </div>
             </div>

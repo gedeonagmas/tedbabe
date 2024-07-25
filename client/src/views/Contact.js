@@ -32,7 +32,7 @@ export default function Contact() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')",
+                "url('https://images.unsplash.com/flagged/photo-1572644973628-e9be84915d59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D')",
             }}
           >
             <span
@@ -86,7 +86,7 @@ export default function Contact() {
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
-                  Build something
+                  Work With us
                 </h2>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-400">
                   Put the potentially record low maximum sea ice extent tihs
@@ -101,11 +101,11 @@ export default function Contact() {
                   <i className="fas fa-medal text-xl"></i>
                 </div>
                 <h6 className="text-xl mt-5 font-semibold text-white">
-                  Excelent Services
+                  Lets work to gather
                 </h6>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  we can leverage our combined expertise, and resources to
+                  develop comprehensive preservation method.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -113,11 +113,11 @@ export default function Contact() {
                   <i className="fas fa-poll text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Grow your market
+                  Collaborate with us
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Collaborating with heritage stakeholders allows for a more
+                  holistic understanding of the challenges and needs.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -125,11 +125,11 @@ export default function Contact() {
                   <i className="fas fa-lightbulb text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Launch time
+                  Join Efforts
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Joint efforts foster a sense of shared responsibility for
+                  protecting our cultural legacies.
                 </p>
               </div>
             </div>

@@ -21,7 +21,7 @@ export default function HeaderStats() {
   return (
     <>
       {/* Header */}
-      <div className="relative bg-yellow-400 md:pt-32 pb-32 pt-20">
+      <div className="relative bg-yellow-700 md:pt-32 pb-32 pt-20">
         <div className="px-4 md:px-10 mx-auto w-full">
           <div>
             {/* Card stats */}

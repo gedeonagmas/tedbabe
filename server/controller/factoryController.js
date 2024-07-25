@@ -3,7 +3,7 @@ const AppError = require("../utils/AppError");
 const { selectModel } = require("../utils/selectModel");
 const bcrypt = require("bcrypt");
 
-const api = "http://localhost:5001/uploads/";
+const api = "https://tedbabehara.onrender.com/uploads/";
 
 //create
 const _create = asyncCatch(async (req, res, next) => {

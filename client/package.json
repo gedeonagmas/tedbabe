@@ -15,6 +15,7 @@
     "gulp": "^5.0.0",
     "gulp-append-prepend": "1.0.8",
     "react": "17.0.1",
+    "react-background-slider": "^4.0.0-next.3",
     "react-dom": "17.0.1",
     "react-fast-marquee": "^1.6.5",
     "react-redux": "^8.0.5",

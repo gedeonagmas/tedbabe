@@ -23,7 +23,7 @@ const sendEmailHandler = ({
   });
 
   const mailOptions = {
-    from: from ? from : "Keradion Design <info@keradiondesigns.com",
+    from: from ? from : "tedbabehara <info@tedbabehara.com",
     to: email ? email : to,
     subject: subject,
     html: html,

@@ -9,9 +9,6 @@ const selectModel = (name, next) => {
     case "users":
       model = User;
       break;
-    // case "services":
-    //   model = Service;
-    //   break;
     case "projects":
       model = Project;
       break;

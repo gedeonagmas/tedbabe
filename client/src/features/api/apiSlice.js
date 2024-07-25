@@ -5,7 +5,8 @@ let tag = [];
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5001/keradion/app/v1",
+    // baseUrl: "http://localhost:5001/tedbabe/app/v1",
+    baseUrl: "https://tedbabehara.onrender.com/tedbabe/app/v1",
   }),
   tagTypes: ["users", "invoices"],
   endpoints: (builder) => ({
