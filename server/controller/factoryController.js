@@ -1,7 +1,7 @@
 const asyncCatch = require("express-async-catch");
 const AppError = require("../utils/AppError");
 const { selectModel } = require("../utils/selectModel");
-const bcrypt = require("bcrypt");
+const cloudinary = require("./../config/cloudinary");
 
 const api = "https://tedbabehara.onrender.com/uploads/";
 
@@ -12,22 +12,69 @@ const _create = asyncCatch(async (req, res, next) => {
   if (model) {
     const count = (await model.countDocuments()) + 1;
 
-    const data = await model.create({
-      ...req.body,
-      image: req.files?.image ? api + req.files.image[0]?.filename : undefined,
-      logo: req.files?.logo ? api + req.files.logo[0]?.filename : undefined,
-    });
+    // const data = await model.create({
+    //   ...req.body,
+    //   image: req.files?.image ? api + req.files.image[0]?.filename : undefined,
+    //   logo: req.files?.logo ? api + req.files.logo[0]?.filename : undefined,
+    // });
 
-    if (!data)
-      return next(
-        new AppError("something went wrong unable to create the data")
+    console.log(req.files, "file", req.files.image);
+    if (req.files.image) {
+      cloudinary.uploader.upload(
+        req.files.image[0].path,
+        async function (err, result) {
+          if (err) {
+            console.log(err);
+            return res
+              .status(500)
+              .json({ msg: "something went wrong document not created" });
+          }
+          const data = await model.create({
+            ...req.body,
+            image: result.url,
+          });
+
+          return res.status(201).json({
+            status: "Created",
+            message: "document created successfully",
+            data,
+          });
+        }
       );
+    } else if (req.files.logo) {
+      cloudinary.uploader.upload(
+        req.files.logo[0].path,
+        async function (err, result) {
+          if (err) {
+            console.log(err);
+            return res
+              .status(500)
+              .json({ msg: "something went wrong document not created" });
+          }
+          const data = await model.create({
+            ...req.body,
+            logo: result.url,
+          });
 
-    return res.status(201).json({
-      status: "Success",
-      message: "data created successfully",
-      data,
-    });
+          return res.status(201).json({
+            status: "Created",
+            message: "document created successfully",
+            data,
+          });
+        }
+      );
+    }
+
+    // if (!data)
+    //   return next(
+    //     new AppError("something went wrong unable to create the data")
+    //   );
+
+    // return res.status(201).json({
+    //   status: "Success",
+    //   message: "data created successfully",
+    //   data,
+    // });
   }
 });
 
