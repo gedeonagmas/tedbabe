@@ -39,7 +39,7 @@ router.route("/resetPassword").post(resetPassword);
 
 router.route("/updatePassword").put(authentication, updatePassword);
 
-router.route("/sendEmail").post(authentication, emailController);
+router.route("/sendEmail").post(emailController);
 
 //factory route
 router
