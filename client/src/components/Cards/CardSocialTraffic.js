@@ -9,7 +9,7 @@ export default function CardSocialTraffic() {
     data: companies,
     isFetching: companiesIsFetching,
     isError: companiesIsError,
-  } = useReadQuery({ url: "/user/companies?visible=true", tag: ["companies"] });
+  } = useReadQuery({ url: "/user/companies", tag: ["companies"] });
 
   return (
     <>

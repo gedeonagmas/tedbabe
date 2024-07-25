@@ -14,13 +14,16 @@ export default function Landing() {
     data: projects,
     isFetching: projectsIsFetching,
     isError: projectsIsError,
-  } = useReadQuery({ url: "/user/projects?limits=6", tag: ["projects"] });
+  } = useReadQuery({
+    url: "/user/projects?limits=6&visible=true",
+    tag: ["projects"],
+  });
 
   const {
     data: companies,
     isFetching: companiesIsFetching,
     isError: companiesIsError,
-  } = useReadQuery({ url: "/user/companies", tag: ["companies"] });
+  } = useReadQuery({ url: "/user/companies?visible=true", tag: ["companies"] });
 
   const [emailData, emailResponse] = useSendEmailMutation();
   const [emailPending, setEmailPending] = useState(false);
