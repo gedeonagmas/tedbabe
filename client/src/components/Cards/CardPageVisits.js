@@ -9,9 +9,7 @@ export default function CardPageVisits() {
     data: projects,
     isFetching: projectsIsFetching,
     isError: projectsIsError,
-  } = useReadQuery({ url: "/user/projects", tag: ["projects"] });
-
-  
+  } = useReadQuery({ url: "/user/projects?visible=true", tag: ["projects"] });
 
   return (
     <>

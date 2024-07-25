@@ -9,8 +9,8 @@ export default function CardSocialTraffic() {
     data: companies,
     isFetching: companiesIsFetching,
     isError: companiesIsError,
-  } = useReadQuery({ url: "/user/companies", tag: ["companies"] });
-  
+  } = useReadQuery({ url: "/user/companies?visible=true", tag: ["companies"] });
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">

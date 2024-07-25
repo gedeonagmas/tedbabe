@@ -33,11 +33,11 @@ export default function HeaderStats() {
                     projects?.data?.filter((e) => e.visible === true)?.length
                   }
                   statArrow="up"
-                  statPercent={
+                  statPercent={(
                     (projects?.data?.filter((e) => e.visible === true)?.length /
                       companies?.data?.length) *
                     100
-                  }
+                  )?.toFixed(1)}
                   statPercentColor="text-emerald-500"
                   statDescripiron="Visible"
                   statIconName="far fa-chart-bar"
@@ -51,12 +51,12 @@ export default function HeaderStats() {
                     projects?.data?.filter((e) => e.visible === false)?.length
                   }
                   statArrow="down"
-                  statPercent={
+                  statPercent={(
                     (projects?.data?.filter((e) => e.visible === false)
                       ?.length /
                       companies?.data?.length) *
                     100
-                  }
+                  )?.toFixed(1)}
                   statPercentColor="text-red-500"
                   statDescripiron="Hidden"
                   statIconName="fas fa-chart-pie"
@@ -70,12 +70,12 @@ export default function HeaderStats() {
                     companies?.data?.filter((e) => e.visible === true)?.length
                   }
                   statArrow="up"
-                  statPercent={
+                  statPercent={(
                     (companies?.data?.filter((e) => e.visible === true)
                       ?.length /
                       companies?.data?.length) *
                     100
-                  }
+                  )?.toFixed(1)}
                   statPercentColor="text-emerald-500"
                   statDescripiron="Visible"
                   statIconName="fas fa-users"
@@ -89,12 +89,12 @@ export default function HeaderStats() {
                     companies?.data?.filter((e) => e.visible === false)?.length
                   }
                   statArrow="down"
-                  statPercent={
+                  statPercent={(
                     (companies?.data?.filter((e) => e.visible === false)
                       ?.length /
                       companies?.data?.length) *
                     100
-                  }
+                  )?.toFixed(1)}
                   statPercentColor="text-orange-500"
                   statDescripiron="Hidden"
                   statIconName="fas fa-percent"
