@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-// components
-
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import Marquee from "react-fast-marquee";
@@ -10,9 +8,6 @@ import { useReadQuery } from "features/api/apiSlice";
 import Response from "components/Response";
 import LoadingButton from "components/loading/LoadingButton";
 import { useSendEmailMutation } from "features/api/apiSlice";
-import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-import BackgroundSlider from "react-background-slider";
 
 export default function Landing() {
   const {
@@ -41,30 +36,6 @@ export default function Landing() {
     });
   };
 
-  const slideImages = [
-    "lalibela1.jpg",
-    "gonder1.jpg",
-    "axum1.jpg",
-    "lalibela2.jpg",
-    "gonder2.jpg",
-    "axum2.jpg",
-  ];
-  const divStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundSize: "cover",
-    height: "625px",
-  };
-
-  const [image, setImage] = useState("lalibela1.jpg");
-
-  // const getImage = () => {
-  //   setInterval(function () {
-  //     setImage("axum1.jpg");
-  //   }, 5000);
-  // };
-
   return (
     <>
       <Navbar transparent />
@@ -83,13 +54,7 @@ export default function Landing() {
               className="w-full h-full absolute opacity-75 bg-black"
             ></span>
           </div>
-          {/* <div className="absolute top-0 w-full h-96 bg-center bg-cover">
-            <BackgroundSlider
-              images={slideImages}
-              duration={5}
-              transition={2}
-            />
-          </div> */}
+
           {/* hero */}
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
