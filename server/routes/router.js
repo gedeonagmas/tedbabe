@@ -45,7 +45,7 @@ router.route("/sendEmail").post(emailController);
 router
   .route("/:table")
   .post(authentication, files, _create)
-  .get(authentication, _read)
+  .get(_read)
   .put(authentication, files, _update)
   .delete(authentication, _delete);
 
