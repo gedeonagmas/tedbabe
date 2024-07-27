@@ -4,7 +4,7 @@ const { User } = require("../models/userModel");
 const { tokenGenerator } = require("../utils/tokenGenerator");
 const crypto = require("crypto");
 const { sendEmailHandler } = require("./emailController");
-const api = "https://tedbabehara.onrender.com/uploads/";
+const api = "https://tedbabe-ctyw.vercel.app/uploads/";
 
 const signupHandler = asyncCatch(async (req, res, next) => {
   const user = await User.create({

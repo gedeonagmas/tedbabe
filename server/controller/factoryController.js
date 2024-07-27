@@ -3,7 +3,7 @@ const AppError = require("../utils/AppError");
 const { selectModel } = require("../utils/selectModel");
 const cloudinary = require("./../config/cloudinary");
 
-const api = "https://tedbabehara.onrender.com/uploads/";
+const api = "https://tedbabe-ctyw.vercel.app/uploads/";
 
 //create
 const _create = asyncCatch(async (req, res, next) => {
