@@ -576,9 +576,10 @@ export default function Landing() {
                   Here are our latest projects
                 </h2>
                 <p className="text-lg leading-relaxed m-4 text-blueGray-500">
-                  According to the National Oceanic and Atmospheric
-                  Administration, Ted, Scambos, NSIDClead scentist, puts the
-                  potentially record maximum.
+                  We've been working diligently for some time, and here are our
+                  latest sample projects. These recent examples showcase the
+                  depth of our experience and capabilities that we've built up
+                  over the years through our client collaborations.
                 </p>
               </div>
             </div>
@@ -623,9 +624,11 @@ export default function Landing() {
                 Companies which work with us.
               </h2>
               <p className="text-lg leading-relaxed m-4 text-blueGray-500">
-                According to the National Oceanic and Atmospheric
-                Administration, Ted, Scambos, NSIDClead scentist, puts the
-                potentially record maximum.
+                We have been working closely with a number of prominent,
+                high-profile companies as part of our business initiatives. Our
+                team has been engaging with the leadership at these top
+                organizations to develop strategic partnerships and explore
+                mutually beneficial opportunities.
               </p>
             </div>
           </div>
